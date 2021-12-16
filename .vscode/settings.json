@@ -1,0 +1,9 @@
+{
+  // https://github.com/jest-community/vscode-jest/issues/741
+  "jest.shell": "/bin/zsh",
+  "jest.autoRun": {
+    "watch": false,
+    "onSave": "test-file",
+    "onStartup": ["all-tests"]
+  }
+}
