@@ -3,32 +3,6 @@ import { load, UserResolver } from '../'
 import { User } from '../../services/user'
 import { loadPrimitive } from '../load'
 
-jest.mock('../../services/user', () => {
-  const originalModule = jest.requireActual('../../services/user');
-
-  //Mock the default export and named export 'foo'
-  return {
-    __esModule: true,
-    ...originalModule,
-    // default: jest.fn(() => 'mocked baz'),
-    getUsersByIds: jest.fn(async () => {
-      return [{
-        id: 44,
-        name: 'weineel-44',
-      }, {
-        id: 55,
-        name: 'weineel-55',
-      }, {
-        id: 66,
-        name: 'weineel-66',
-      }, {
-        id: 77,
-        name: 'weineel-77',
-      }]
-    }),
-  };
-})
-
 describe('load', () => {
   it('Simple use', async () => {
     const res = await load({

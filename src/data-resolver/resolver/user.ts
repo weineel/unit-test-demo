@@ -1,11 +1,11 @@
-// import { Resolver } from '.'
-// import { findUserCrossCompany } from '@api-service/user'
-// import { createDataLoader } from '../utils'
+import { Resolver } from '.'
+import { getUsersByIds } from '../../services/user'
+import { createDataLoader } from '../utils'
 
-// const loader = createDataLoader(keys => findUserCrossCompany(keys))
+const loader = createDataLoader(keys => getUsersByIds(keys))
 
-// export class UserResolver extends Resolver {
-//   loadMany(loadKeys: any[]) {
-//     return loader.loadMany(loadKeys)
-//   }
-// }
+export class UserResolver extends Resolver {
+  loadMany(loadKeys: any[]) {
+    return loader.loadMany(loadKeys)
+  }
+}

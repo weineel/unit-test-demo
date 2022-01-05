@@ -2,7 +2,7 @@ import { find, join, isFunction } from 'lodash'
 import { I_Loader, I_Transform } from './types'
 import Dataloader from 'dataloader'
 
-export function createDataLoader<T>(fetcher: (keys: (string | number)[]) => Promise<T[]>): Dataloader<string | number, T> {
+export function createDataLoader<T>(fetcher: (keys: number[]) => Promise<T[]>): Dataloader<string | number, T> {
   return new Dataloader(
     async (keys: any) => {
       const rt = await fetcher(keys)
@@ -20,10 +20,10 @@ export function createDataLoader<T>(fetcher: (keys: (string | number)[]) => Prom
  * @param keys 用于 resolve 的 key 数组
  */
 export function alignResponseByKeys(response: any[], keys: number[]): any[] {
-  return keys.map(sid => {
+  return keys.map(id => {
     // eslint-disable-next-line eqeqeq
-    const matched = find(response, (e) => e.sid == sid)
-    return matched || new Error(`DataResolve: No result for ${sid}`)
+    const matched = find(response, (e) => e.id == id)
+    return matched || new Error(`DataResolve: No result for ${id}`)
   })
 }
 

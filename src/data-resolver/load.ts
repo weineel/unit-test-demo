@@ -179,3 +179,19 @@ export async function load<T extends Record<string, any> = any>(payload: T | T[]
   })
   return payload
 }
+
+/**
+ * 恢复原始类型，不限制待恢复数据为对象会对象数组。
+ */
+export async function loadPrimitive<R extends Record<string, any> = any, D extends string | number = number>(data: D, loader: I_Loader): Promise<R>;
+export async function loadPrimitive<R extends Record<string, any> = any, D extends string | number = number>(data: D[], loader: I_Loader): Promise<R[]>;
+export async function loadPrimitive<R extends Record<string, any> = any, D extends string | number = number>(data: D[] | D, loader: I_Loader): Promise<R[] | R> {
+  const dataIsArray = isArray(data)
+  const resolvedObj = await load({
+    value: data,
+  }, {
+    value: loader,
+  })
+  const value = resolvedObj.value
+  return dataIsArray ? (value as any[] || []) : value as any
+}

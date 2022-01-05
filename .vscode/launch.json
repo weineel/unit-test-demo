@@ -12,6 +12,7 @@
       "cwd": "${workspaceFolder}",
       "args": [
         "--runInBand",
+        "--detectOpenHandles",
         "--watchAll=false"
       ]
     }
