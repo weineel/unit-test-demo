@@ -1,4 +1,4 @@
-import { get, map } from 'lodash';
+import { get, map } from 'lodash'
 import { load, UserResolver } from '../'
 import { User } from '../../services/user'
 import { loadPrimitive } from '../load'
