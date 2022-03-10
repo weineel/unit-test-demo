@@ -7,6 +7,7 @@
     "preview": "vite preview",
     "test:unit": "jest",
     "test:unit:w": "jest --watchAll",
+    "test:coverage": "jest --coverage",
     "json-server": "ts-node ./src/services/mock/index.ts"
   },
   "dependencies": {

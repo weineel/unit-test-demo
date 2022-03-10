@@ -4,7 +4,10 @@ import { Counter } from '../counter'
 import Ide from './ide.vue'
 import Docs from './docs.vue'
 
-defineProps<{ msg: string }>()
+withDefaults(
+  defineProps<{ msg: string }>(),
+  { msg: 'wn...' }
+)
 
 const count = ref(0)
 </script>

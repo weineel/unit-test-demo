@@ -29,15 +29,19 @@ jest.mock('../../services/user', () => {
   };
 })
 
+afterAll(() => {
+  // 删除测试过程中产生的文件等
+})
+
 describe('load', () => {
   it('Simple use', async () => {
     const res = await load({
-      user_id: 44,
+      id: 44,
       sss: '999',
     }, {
-      user_id: new UserResolver()
+      id: new UserResolver()
     })
-    expect(get(res, 'user_id.name')).toEqual('weineel-44')
+    expect(get(res, 'id.name')).toEqual('weineel-44')
   })
 
   it('Nested use', async () => {

@@ -10,7 +10,7 @@ const rate = ref(0)
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <hello-world msg="Hello Vue 3 + TypeScript + Vite" />
   <div>
     rate: <Rate v-model="rate"></Rate>
     <div> {{rate}} </div>
